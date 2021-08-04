@@ -1,4 +1,4 @@
-
+// https://codeforwin.org/2018/02/c-program-count-occurrences-of-a-word-in-file.html
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,19 +6,46 @@
 
 #define BUFFER_SIZE 1000
 
-/* Function declarations */
 int countOccurrences(FILE *fptr, const char *word);
 
 int main(int argc, char const *argv[])
 {
     FILE *fptr;
 
-    if(argc < 2){
+    int words_qt;
+
+    if (argc < 2){
         printf("Not enough arguments to start program\n");
-        printf("Usage: ./sequential <word> \n");
         exit(EXIT_FAILURE);
     }
 
+    words_qt = atoi(argv[1]);
+
+    if (words_qt > 10){
+        printf("Quantity of words to be searched cannot be greater than 10\n");
+        exit(EXIT_FAILURE);
+    }
+
+    char word[10][30] = {"Morty", "Rick", "Summer", "Pickle", "yes", "no", "why", "because", "are", "you"};
+    int wCount;
+
+    int i;
+    int counts[4] = {0, 0, 0, 0};
+
+    printf("Word Counter Program, Result: \n");
+    for (i=0; i < words_qt; i++){
+        counts[i] = countOccurrences(fptr, word[i]);
+        printf("'%s' -> %d times\n", word[i], counts[i]);
+    }
+
+    
+    return 0;
+}
+
+
+
+int countOccurrences(FILE *fptr, const char *word)
+{   
     fptr = fopen("words.txt", "r");
     if (fptr == NULL)
     {
@@ -28,34 +55,7 @@ int main(int argc, char const *argv[])
         exit(EXIT_FAILURE);
     }
 
-    char word[50];
-    int wCount;
 
-
-    strcpy(word, argv[1]);
-
-    // Call function to count all occurrence of word
-
-    // For i in len(words){
-    //      wCount = countOccourrences(words[i])
-    //     wordsDict = {words[i]: Wcount}
-    //}
-
-    wCount = countOccurrences(fptr, word);
-
-    printf("'%s' is found %d times in file.\n", word, wCount);
-
-    // Close file
-    fclose(fptr);
-    return 0;
-}
-
-
-/**
- * Returns total occurrences of a word in given file.
- */
-int countOccurrences(FILE *fptr, const char *word)
-{
     char str[BUFFER_SIZE];
     char *pos;
 
@@ -75,10 +75,10 @@ int countOccurrences(FILE *fptr, const char *word)
             // Memory address of pos - memory
             // address of str.
             index = (pos - str) + 1;
-
             count++;
         }
     }
 
+    fclose(fptr);
     return count;
 }
