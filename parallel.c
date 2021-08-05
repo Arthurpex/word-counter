@@ -1,4 +1,3 @@
-// https://codeforwin.org/2018/02/c-program-count-occurrences-of-a-word-in-file.html
 
 #include <stdio.h>
 #include <stdlib.h>
