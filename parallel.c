@@ -1,8 +1,7 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#define OMP_NUM_THREADS 16
 #define BUFFER_SIZE 1000
 
 int contaOcorrencias(const char *palavra) {   
