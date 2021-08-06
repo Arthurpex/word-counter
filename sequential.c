@@ -47,7 +47,7 @@ int main(int argc, char const *argv[]) {
     int qt_palavras = atoi(argv[1]);
 
     int i;
-    int contagens[qt_palavras];
+    int contagens;
 
     if (qt_palavras > 10) {
         printf("Quantidade de palavras a serem pesquisadas não pode execeder 10\n");
@@ -60,8 +60,8 @@ int main(int argc, char const *argv[]) {
     printf("Programa contador de palavras, Resultado: \n");
     printf("num_ocorrencias -> palavra \n");
     for (i=0; i < qt_palavras; i++) {
-        contagens[i] = contaOcorrencias(palavras[i]);
-        printf(" %d -> '%s'\n", contagens[i], palavras[i]);
+        contagens = contaOcorrencias(palavras[i]);
+        printf(" %d -> '%s'\n", contagens, palavras[i]);
     }
 
     return 0;
