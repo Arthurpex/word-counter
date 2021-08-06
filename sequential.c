@@ -1,7 +1,9 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/time.h>
+
+struct timeval t1, t2;
 
 #define BUFFER_SIZE 1000
 
@@ -57,12 +59,18 @@ int main(int argc, char const *argv[]) {
 
     char palavras[10][30] = {"Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you"};
 
+    gettimeofday(&t1, NULL);
     printf("Programa contador de palavras, Resultado: \n");
     printf("num_ocorrencias -> palavra \n");
+
     for (i=0; i < qt_palavras; i++) {
         contagens = contaOcorrencias(palavras[i]);
         printf(" %d -> '%s'\n", contagens, palavras[i]);
     }
+    gettimeofday(&t2, NULL);
+
+    double t_total= (t2.tv_sec - t1.tv_sec) + ((t2.tv_usec -t1.tv_usec)/1000000.0);
+    printf("\nTempo: %f\n", t_total);
 
     return 0;
 }
