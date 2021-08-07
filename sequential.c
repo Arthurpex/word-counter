@@ -51,13 +51,21 @@ int main(int argc, char const *argv[]) {
     int i;
     int contagens;
 
-    if (qt_palavras > 10) {
-        printf("Quantidade de palavras a serem pesquisadas não pode execeder 10\n");
+    if (qt_palavras > 80) {
+        printf("Quantidade de palavras a serem pesquisadas não pode execeder 80\n");
         exit(EXIT_FAILURE);
     }
 
-
-    char palavras[10][30] = {"Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you"};
+    char palavras[80][30] = {
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you", 
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you",
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you",
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you",
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you", 
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you",
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you",
+        "Hobbit", "ring", "Bilbo", "Gandalf", "yes", "no", "why", "because", "are", "you"
+    };
 
     gettimeofday(&t1, NULL);
     printf("Programa contador de palavras, Resultado: \n");
