@@ -4,8 +4,8 @@ Atividade 4 de Programação Paralela e Distribuída (INE5645) - UFSC
 ## To Run
 ### Sequencial
 `gcc sequential.c -o sequential`<br>
-`./sequential <número>`
+`./sequential <num_palavras>`
 
 ### Parelelo
 `gcc -fopenmp parallel.c -o parallel`<br>
-`./parallel <número>`
+`./parallel <num_palavras> <num_threads>`
